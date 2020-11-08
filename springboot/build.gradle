@@ -1,0 +1,49 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.projectlombok:lombok'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	//jsp 라이브러리추가
+	compile 'javax.servlet:jstl:1.2'
+	//Devtool 라이브러리 추가(화면 새로고침,서버 재시작기능)
+	compile('org.springframework.boot:spring-boot-devtools')
+	//의존성 추가(gradle)
+	compile('org.apache.tomcat.embed:tomcat-embed-jasper')
+	//jstl 
+	compile('javax.servlet:jstl:1.2')
+	//mybatis 
+	compile "org.springframework.boot:spring-boot-starter-jdbc"
+	compile "org.mybatis:mybatis:3.4.0"
+	compile "org.mybatis:mybatis-spring:1.3.0"
+	compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.0.1'
+	
+}
+
+test {
+	useJUnitPlatform()
+}
