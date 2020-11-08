@@ -31,6 +31,7 @@ public class HomeController {
 	@RequestMapping(value="/")
 	public String hello(Model model) {
 		model.addAttribute("data","안녕~");
+		// 주석 달아야지
 		return "/hello";
 	}
 	
