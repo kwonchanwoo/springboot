@@ -32,6 +32,7 @@ public class HomeController {
 	public String hello(Model model) {
 		model.addAttribute("data","안녕하세유 리즈님~");
 		// 주석 달아야지
+		// 끼룩 끼룩
 		return "/hello";
 	}
 	
